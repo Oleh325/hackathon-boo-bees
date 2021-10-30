@@ -11,14 +11,13 @@ public class Health : MonoBehaviour
     [SerializeField] private Sprite fullHeart;
     [SerializeField] private Sprite emptyHeart;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
     // Update is called once per frame
     void Update()
+    {
+        UpdateHeartStatusBar();
+    }
+
+    private void UpdateHeartStatusBar()
     {
         for (int i = 0; i < hearts.Length; i++)
         {
