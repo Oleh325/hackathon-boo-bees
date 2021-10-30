@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    private const float Tolerance = 0.1f;
+    private const string HorizontalAxisName = "Horizontal";
+    private const string VerticalAxisName = "Vertical";
+   
     [SerializeField] private Player _player;
     [SerializeField] private Transform _movePoint;
     [SerializeField] private Vector2 _minMapCordinatesPoint;
@@ -13,22 +17,18 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private SoundManager _soundManager;
     [SerializeField] private Animator _animator;
     [SerializeField] private UnityEngine.Camera _camera;
-
-    private const float Tolerance = 0.1f;
-    private const string HorizontalAxisName = "Horizontal";
-    private const string VerticalAxisName = "Vertical";
-   
+    private bool _isReloading = false;
+    private float _delayForReload = 1;
+    private Water[] _waterInstances;
+    
     public Action<DirectionWrapper> OnMoveChange = delegate {};
     public Action<DirectionWrapper, DirectionWrapper> OnAnimationChange = delegate {};
     public Action<Vector2> OnShoot = delegate {};
-    private bool _isReloading = false;
-    private float _delayForReload = 1;
 
-    private void Start()
-    {
-        Water[] waterInstances = _waterIslandParent.GetComponentsInChildren<Water>();
+    private void Awake()
+    { 
+        _waterInstances = _waterIslandParent.GetComponentsInChildren<Water>();
     }
-
 
     private bool IsCurrentlyMoving(DirectionWrapper horizontalDirectionWrapper, DirectionWrapper verticalDirectionWrapper)
     {
@@ -52,7 +52,7 @@ public class PlayerController : MonoBehaviour
                 isNotStuck = false;
             }
         }
-        foreach (var water in _waterIslandParent.GetComponentsInChildren<Water>())
+        foreach (var water in _waterInstances)
         {
             if (water.CurrentPosition == afterMovePosition)
             {
