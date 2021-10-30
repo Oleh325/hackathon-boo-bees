@@ -500,7 +500,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _AudioSource: {fileID: 287850841}
-  _BatAudioSource: {fileID: 287850841}
 --- !u!82 &287850841
 AudioSource:
   m_ObjectHideFlags: 0
@@ -855,7 +854,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 9.91, y: 7.83, z: -10}
+  m_LocalPosition: {x: 16, y: 8, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -1153,7 +1152,7 @@ MonoBehaviour:
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 1
+  m_PixelsPerUnitMultiplier: 1.2
 --- !u!222 &753824906
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2438,12 +2437,12 @@ PrefabInstance:
     - target: {fileID: 9043057938274085050, guid: 9ec66d18d07a147e1ade1df6ca446712,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 10
+      value: 17
       objectReference: {fileID: 0}
     - target: {fileID: 9043057938274085050, guid: 9ec66d18d07a147e1ade1df6ca446712,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 5
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 9043057938274085050, guid: 9ec66d18d07a147e1ade1df6ca446712,
         type: 3}

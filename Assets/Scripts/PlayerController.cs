@@ -9,6 +9,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private Vector2 _minMapCordinatesPoint;
     [SerializeField] private Vector2 _maxMapCordinatesPoint;
     [SerializeField] private GameObject _stoneParent;
+    [SerializeField] private GameObject _waterIslandParent;
     [SerializeField] private SoundManager _soundManager;
     [SerializeField] private Animator _animator;
     [SerializeField] private UnityEngine.Camera _camera;
@@ -29,7 +30,8 @@ public class PlayerController : MonoBehaviour
         return Mathf.Abs(horizontalDirectionWrapper.AxisValue) != 0f && Mathf.Abs(verticalDirectionWrapper.AxisValue) != 0f;
     }
 
-    private bool IsLegalMove(DirectionWrapper horizontalDirectionWrapper, DirectionWrapper verticalDirectionWrapper) {
+    private bool IsLegalMove(DirectionWrapper horizontalDirectionWrapper, DirectionWrapper verticalDirectionWrapper)
+    {
         float afterMoveHorizontal = _player.CurrentPosition.x + horizontalDirectionWrapper.AxisValue; 
         float afterMoveVertical = _player.CurrentPosition.y + verticalDirectionWrapper.AxisValue;
         Vector3 afterMovePosition = new Vector3(afterMoveHorizontal, afterMoveVertical);
@@ -37,19 +39,22 @@ public class PlayerController : MonoBehaviour
                               afterMoveHorizontal <= _maxMapCordinatesPoint.x &&
                               _minMapCordinatesPoint.y <= afterMoveVertical &&
                               afterMoveVertical <= _maxMapCordinatesPoint.y;
-        bool isNotStuckIntoStone = true;
+        bool isNotStuck = true;
         foreach (var stone in _stoneParent.GetComponentsInChildren<Stone>())
         {
             if (stone.CurrentPosition == afterMovePosition)
             {
-                isNotStuckIntoStone = false;
+                isNotStuck = false;
             }
         }
-        if (_animator.GetBool("isPlayerBat") == true)
+        foreach (var water in _waterIslandParent.GetComponentsInChildren<Water>())
         {
-            isNotStuckIntoStone = true;
+            if (water.CurrentPosition == afterMovePosition)
+            {
+                isNotStuck = false;
+            }
         }
-        return isWithinBounds && isNotStuckIntoStone;
+        return isWithinBounds && isNotStuck;
     }
 
     private void Update()
