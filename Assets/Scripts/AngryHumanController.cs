@@ -17,7 +17,8 @@ public class AngryHumanController : MonoBehaviour
 
     private void Update()
     {
-        if (Vector3.Distance(transform.position, _movePoint.position) == 0f) {
+        if (Vector3.Distance(transform.position, _movePoint.position) == 0f)
+        {
             RespawnAndSetFinalMovePoint();
         }
         transform.position = Vector3.MoveTowards(transform.position, _movePoint.position, _moveSpeed * Time.deltaTime);
