@@ -355,7 +355,6 @@ Transform:
   - {fileID: 519671958}
   - {fileID: 1539580286}
   - {fileID: 1690086784}
-  - {fileID: 1272770907}
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1474,52 +1473,6 @@ MonoBehaviour:
   secondSecond: {fileID: 1175438642}
   flashMagnitude: 0.4
   flashDuraction: 10
---- !u!1 &1272770905
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1272770907}
-  - component: {fileID: 1272770906}
-  m_Layer: 0
-  m_Name: BatManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1272770906
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1272770905}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8408dccc66a284747bb337ea0fd300af, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _batPrefab: {fileID: 9046121895566641008, guid: febafe9a1c9f9854ea22b59f40598377,
-    type: 3}
-  spawnRate: 7
---- !u!4 &1272770907
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1272770905}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 171551437}
-  m_RootOrder: 4
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1322547529
 GameObject:
   m_ObjectHideFlags: 0
