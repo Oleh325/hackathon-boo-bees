@@ -952,7 +952,7 @@ GameObject:
   - component: {fileID: 519671958}
   - component: {fileID: 519671959}
   m_Layer: 0
-  m_Name: AngryHumanManager
+  m_Name: SkeletonManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -981,11 +981,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 519671957}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 338b00af5c3f94a1b84ed0e47c5757f9, type: 3}
+  m_Script: {fileID: 11500000, guid: be93fe04040a69742b59757adbafc317, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _angryHuman: {fileID: 0}
-  _angryHumanCount: 3
+  _skeletonPrefab: {fileID: 705047309017312216, guid: 1a92004f9ef7742f08f45bd306b7000b,
+    type: 3}
+  _skeletonsParent: {fileID: 2122252204}
 --- !u!1 &738344835
 GameObject:
   m_ObjectHideFlags: 0
@@ -1261,12 +1262,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &907029086 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2411096299235177946, guid: 433c17d47d0106241a0c9d41eeac946b,
-    type: 3}
-  m_PrefabInstance: {fileID: 2411096300075081604}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1126495935 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 9043057938274085050, guid: 9ec66d18d07a147e1ade1df6ca446712,
@@ -1550,16 +1545,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f92130af34c0549c0b8f9b73d4a23a89, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _PumpkinPrefab: {fileID: 2029748208450664716, guid: 17e28f8ae6ab74444b73ec33e15e2160,
-    type: 3}
-  _Parent: {fileID: 907029086}
-  _Player: {fileID: 2109950167}
-  _MaxPumpkinCount: 6
-  _SpawnMagnitude: 3
-  _ScoreText: {fileID: 738344837}
-  player: {fileID: 2109950174}
-  _InstantiatedPumpkins: []
-  _PumpkinCount: 0
 --- !u!1 &1322547529
 GameObject:
   m_ObjectHideFlags: 0
@@ -2354,24 +2339,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2106106524}
   m_CullTransparentMesh: 0
---- !u!1 &2109950167 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 9043057938274085051, guid: 9ec66d18d07a147e1ade1df6ca446712,
-    type: 3}
-  m_PrefabInstance: {fileID: 9043057936894758967}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &2109950174 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 9043057938274085049, guid: 9ec66d18d07a147e1ade1df6ca446712,
-    type: 3}
-  m_PrefabInstance: {fileID: 9043057936894758967}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2109950167}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7673e6d9ae7817f4684ebffc6ad07d0a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &2122252204
 GameObject:
   m_ObjectHideFlags: 0
@@ -2535,22 +2502,12 @@ PrefabInstance:
         type: 3}
       propertyPath: _bulletsParrent
       value: 
-      objectReference: {fileID: 198352106}
+      objectReference: {fileID: 1740371590}
     - target: {fileID: 5616335751228471828, guid: 9ec66d18d07a147e1ade1df6ca446712,
         type: 3}
       propertyPath: _maxMapCordinatesPoint.x
       value: 32
       objectReference: {fileID: 0}
-    - target: {fileID: 5616335751228471828, guid: 9ec66d18d07a147e1ade1df6ca446712,
-        type: 3}
-      propertyPath: _maxMapCordinatesPoint.y
-      value: 18
-      objectReference: {fileID: 0}
-    - target: {fileID: 5616335751228471828, guid: 9ec66d18d07a147e1ade1df6ca446712,
-        type: 3}
-      propertyPath: _bulletsParrent
-      value: 
-      objectReference: {fileID: 1740371590}
     - target: {fileID: 5616335751228471828, guid: 9ec66d18d07a147e1ade1df6ca446712,
         type: 3}
       propertyPath: _maxMapCordinatesPoint.y
