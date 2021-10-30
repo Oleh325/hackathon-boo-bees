@@ -23,12 +23,14 @@ public class AngryHumanManager : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
-        if (_instantiatedAngryHumans.Count < _angryHumanCount) {
+        if (_instantiatedAngryHumans.Count < _angryHumanCount)
+        {
             InstantiateAngryHuman();
         }
     }
 
-    private void InstantiateAngryHuman() {
+    private void InstantiateAngryHuman()
+    {
 
     }
 }

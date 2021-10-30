@@ -351,10 +351,10 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 1204114565}
   - {fileID: 287850838}
   - {fileID: 519671958}
   - {fileID: 1539580286}
+  - {fileID: 1690086784}
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -389,7 +389,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 171551437}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!82 &287850839
 AudioSource:
@@ -718,7 +718,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 0d27f43bf1dc14f3faf4a3282bf93a4c, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 97b904b88ba474a4984b6fa6fcf587d4, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
@@ -937,7 +937,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 171551437}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &519671959
 MonoBehaviour:
@@ -1474,57 +1474,6 @@ MonoBehaviour:
   secondSecond: {fileID: 1175438642}
   flashMagnitude: 0.4
   flashDuraction: 10
---- !u!1 &1204114564
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1204114565}
-  - component: {fileID: 1204114566}
-  m_Layer: 0
-  m_Name: PumpkinManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1204114565
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1204114564}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 171551437}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1204114566
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1204114564}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f92130af34c0549c0b8f9b73d4a23a89, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _PumpkinPrefab: {fileID: 2029748208450664716, guid: 17e28f8ae6ab74444b73ec33e15e2160,
-    type: 3}
-  _Parent: {fileID: 907029086}
-  _Player: {fileID: 2109950167}
-  _MaxPumpkinCount: 6
-  _SpawnMagnitude: 3
-  _ScoreText: {fileID: 738344837}
-  player: {fileID: 2109950174}
 --- !u!1 &1322547529
 GameObject:
   m_ObjectHideFlags: 0
@@ -1862,7 +1811,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 171551437}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1539580287
 MonoBehaviour:
@@ -1881,6 +1830,58 @@ MonoBehaviour:
   _PebblePrefab2: {fileID: 2885079551204817705, guid: 1b80219ab5b314ade8122e63341146c0,
     type: 3}
   _Parent: {fileID: 453868425}
+  _PebbleCount: 5
+  _SpawnMagnitude: 3
+  _MaxXPosition: 31
+  _MaxYPosition: 17
+--- !u!1 &1690086783
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1690086784}
+  - component: {fileID: 1690086785}
+  m_Layer: 0
+  m_Name: PumpkinManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1690086784
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1690086783}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 171551437}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1690086785
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1690086783}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f24474dc9e1c64351b0c539d8f725913, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _PebblePrefab1: {fileID: 2029748208450664716, guid: 17e28f8ae6ab74444b73ec33e15e2160,
+    type: 3}
+  _PebblePrefab2: {fileID: 2029748208450664716, guid: 17e28f8ae6ab74444b73ec33e15e2160,
+    type: 3}
+  _Parent: {fileID: 907029086}
   _PebbleCount: 5
   _SpawnMagnitude: 3
   _MaxXPosition: 31
@@ -2289,24 +2290,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2106106524}
   m_CullTransparentMesh: 0
---- !u!1 &2109950167 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 9043057938274085051, guid: 9ec66d18d07a147e1ade1df6ca446712,
-    type: 3}
-  m_PrefabInstance: {fileID: 9043057936894758967}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &2109950174 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 9043057938274085049, guid: 9ec66d18d07a147e1ade1df6ca446712,
-    type: 3}
-  m_PrefabInstance: {fileID: 9043057936894758967}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2109950167}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7673e6d9ae7817f4684ebffc6ad07d0a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &2411096300075081604
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2414,6 +2397,11 @@ PrefabInstance:
       objectReference: {fileID: 287850840}
     - target: {fileID: 2258082163592888738, guid: 9ec66d18d07a147e1ade1df6ca446712,
         type: 3}
+      propertyPath: _camera
+      value: 
+      objectReference: {fileID: 519420031}
+    - target: {fileID: 2258082163592888738, guid: 9ec66d18d07a147e1ade1df6ca446712,
+        type: 3}
       propertyPath: _stoneParent
       value: 
       objectReference: {fileID: 453868425}
@@ -2431,7 +2419,7 @@ PrefabInstance:
         type: 3}
       propertyPath: _pumpkinManager
       value: 
-      objectReference: {fileID: 1204114566}
+      objectReference: {fileID: 0}
     - target: {fileID: 9043057938274085049, guid: 9ec66d18d07a147e1ade1df6ca446712,
         type: 3}
       propertyPath: _TransformationText
