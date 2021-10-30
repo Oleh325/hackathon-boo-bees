@@ -16,13 +16,12 @@ public class PlayerController : MonoBehaviour
     private const float Tolerance = 0.1f;
     private const string HorizontalAxisName = "Horizontal";
     private const string VerticalAxisName = "Vertical";
-   
+
     public Action<DirectionWrapper> OnMoveChange = delegate {};
     public Action<DirectionWrapper, DirectionWrapper> OnAnimationChange = delegate {};
     public Action<Vector2> OnShoot = delegate {};
     private bool _isReloading = false;
     private float _delayForReload = 1;
-
 
     private bool IsCurrentlyMoving(DirectionWrapper horizontalDirectionWrapper, DirectionWrapper verticalDirectionWrapper)
     {
