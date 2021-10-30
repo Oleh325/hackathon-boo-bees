@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Pumpkin
   - ScaredHuman
+  - Bullet
   layers:
   - Default
   - TransparentFX
