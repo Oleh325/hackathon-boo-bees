@@ -12,7 +12,7 @@ public class Health : MonoBehaviour
     [SerializeField] private Sprite emptyHeart;
 
     // Update is called once per frame
-    void Update()
+    private void Update()
     {
         UpdateHeartStatusBar();
     }
