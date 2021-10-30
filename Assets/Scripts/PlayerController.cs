@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
@@ -9,7 +10,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private Vector2 _maxMapCordinatesPoint;
     [SerializeField] private GameObject _stoneParent;
     [SerializeField] private SoundManager _soundManager;
-    [SerializeField] private Animator animator;
+    [SerializeField] private Animator _animator;
+    [SerializeField] private UnityEngine.Camera _camera;
 
     private const float Tolerance = 0.1f;
     private const string HorizontalAxisName = "Horizontal";
@@ -17,6 +19,9 @@ public class PlayerController : MonoBehaviour
    
     public Action<DirectionWrapper> OnMoveChange = delegate {};
     public Action<DirectionWrapper, DirectionWrapper> OnAnimationChange = delegate {};
+    public Action<Vector2> OnShoot = delegate {};
+    private bool _isReloading = false;
+    private float _delayForReload = 1;
 
 
     private bool IsCurrentlyMoving(DirectionWrapper horizontalDirectionWrapper, DirectionWrapper verticalDirectionWrapper)
@@ -40,7 +45,7 @@ public class PlayerController : MonoBehaviour
                 isNotStuckIntoStone = false;
             }
         }
-        if (animator.GetBool("isPlayerBat") == true)
+        if (_animator.GetBool("isPlayerBat") == true)
         {
             isNotStuckIntoStone = true;
         }
@@ -50,6 +55,24 @@ public class PlayerController : MonoBehaviour
     private void Update()
     {
         ControlCommonMovement();
+        ControlShooting();
+    }
+
+    private void ControlShooting()  
+    {
+        if (Input.GetKeyDown(KeyCode.Mouse0) && !_isReloading)
+        {
+            Vector2 mousePos = _camera.ScreenToWorldPoint(Input.mousePosition);
+            OnShoot(mousePos);
+            _isReloading = true;
+            StartCoroutine(Reload());
+        }
+    }
+
+    private IEnumerator Reload()
+    {
+        yield return new WaitForSeconds(_delayForReload);
+        _isReloading = false;
     }
 
 

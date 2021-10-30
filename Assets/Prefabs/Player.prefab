@@ -117,6 +117,7 @@ GameObject:
   - component: {fileID: 2258082163592888738}
   - component: {fileID: 2109950169}
   - component: {fileID: 2109950168}
+  - component: {fileID: 5616335751228471828}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -248,7 +249,8 @@ MonoBehaviour:
   _maxMapCordinatesPoint: {x: 31, y: 17}
   _stoneParent: {fileID: 0}
   _soundManager: {fileID: 0}
-  animator: {fileID: 1126495937}
+  _animator: {fileID: 1126495937}
+  _camera: {fileID: 0}
 --- !u!50 &2109950169
 Rigidbody2D:
   serializedVersion: 4
@@ -296,3 +298,19 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.5, y: 0.5}
   m_EdgeRadius: 0
+--- !u!114 &5616335751228471828
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9043057938274085051}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f79fa74a53ba2014e9c0128ba0a7a7a1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _bulletPrefab: {fileID: 2029748208450664716, guid: 829da3861f64b154cbccf3cd4f6765a1,
+    type: 3}
+  _bulletSpeed: 5
+  _playerController: {fileID: 2258082163592888738}
