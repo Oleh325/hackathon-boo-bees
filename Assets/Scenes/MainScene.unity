@@ -2414,6 +2414,11 @@ PrefabInstance:
       objectReference: {fileID: 287850840}
     - target: {fileID: 2258082163592888738, guid: 9ec66d18d07a147e1ade1df6ca446712,
         type: 3}
+      propertyPath: _camera
+      value: 
+      objectReference: {fileID: 519420031}
+    - target: {fileID: 2258082163592888738, guid: 9ec66d18d07a147e1ade1df6ca446712,
+        type: 3}
       propertyPath: _stoneParent
       value: 
       objectReference: {fileID: 453868425}
@@ -2422,6 +2427,11 @@ PrefabInstance:
       propertyPath: _soundManager
       value: 
       objectReference: {fileID: 287850840}
+    - target: {fileID: 5616335751228471828, guid: 9ec66d18d07a147e1ade1df6ca446712,
+        type: 3}
+      propertyPath: _bulletSpeed
+      value: 15
+      objectReference: {fileID: 0}
     - target: {fileID: 9043057938274085049, guid: 9ec66d18d07a147e1ade1df6ca446712,
         type: 3}
       propertyPath: _soundManager
