@@ -29,7 +29,7 @@ public class PlayerController : MonoBehaviour
     { 
         _waterInstances = _waterIslandParent.GetComponentsInChildren<Water>();
     }
-
+    
     private bool IsCurrentlyMoving(DirectionWrapper horizontalDirectionWrapper, DirectionWrapper verticalDirectionWrapper)
     {
         return Mathf.Abs(horizontalDirectionWrapper.AxisValue) != 0f && Mathf.Abs(verticalDirectionWrapper.AxisValue) != 0f;
