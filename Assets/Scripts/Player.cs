@@ -8,14 +8,11 @@ public class Player : MonoBehaviour, IUnit
     [SerializeField] private Transform _movePoint;
     [SerializeField] private Animator _animator;
     [SerializeField] private PlayerController _playerController;
-    [SerializeField] private PumpkinManager _pumpkinManager;
     [SerializeField] private SoundManager _soundManager;
     [SerializeField] private TMPro.TextMeshProUGUI _TransformationText;
     [SerializeField] private Animator animator;
-    private DirectionWrapper _currentDirection;
     private int timeToTransformation;
     public bool canTransform;
-    private bool canTransformWhenBat;
     public Vector3 CurrentPosition { get; private set; }
 
     private void Awake()
@@ -74,7 +71,6 @@ public class Player : MonoBehaviour, IUnit
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.CompareTag("Pumpkin")) {
-            _pumpkinManager.PickUpPumpkin(other.gameObject);
             _soundManager.playSound("PumpkinPickedUp");      
         }
         if (other.gameObject.CompareTag("ScaredHuman")) {
