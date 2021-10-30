@@ -13,22 +13,16 @@ public class AngryHumanManager : MonoBehaviour
     {
         _instantiatedAngryHumans = new List<GameObject>();
     }
-
-    // Start is called before the first frame update
-    private void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
     private void Update()
     {
-        if (_instantiatedAngryHumans.Count < _angryHumanCount) {
+        if (_instantiatedAngryHumans.Count < _angryHumanCount)
+        {
             InstantiateAngryHuman();
         }
     }
 
-    private void InstantiateAngryHuman() {
+    private void InstantiateAngryHuman()
+    {
 
     }
 }
