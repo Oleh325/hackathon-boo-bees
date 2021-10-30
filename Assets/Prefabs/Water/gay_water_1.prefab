@@ -11,8 +11,9 @@ GameObject:
   - component: {fileID: 7620162321462239170}
   - component: {fileID: 4377291424014420148}
   - component: {fileID: -1947166049171761964}
+  - component: {fileID: 1287094949812227174}
   m_Layer: 0
-  m_Name: gay_water_3 1
+  m_Name: gay_water_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -94,3 +95,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 677b8154907be465e984e6eddaf25d7e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!95 &1287094949812227174
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3284128988187099135}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: d33ad28fbed068b41829e12d5793e46a, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
