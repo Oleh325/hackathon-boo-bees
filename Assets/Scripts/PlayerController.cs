@@ -24,6 +24,11 @@ public class PlayerController : MonoBehaviour
     private bool _isReloading = false;
     private float _delayForReload = 1;
 
+    private void Start()
+    {
+        Water[] waterInstances = _waterIslandParent.GetComponentsInChildren<Water>();
+    }
+
 
     private bool IsCurrentlyMoving(DirectionWrapper horizontalDirectionWrapper, DirectionWrapper verticalDirectionWrapper)
     {
