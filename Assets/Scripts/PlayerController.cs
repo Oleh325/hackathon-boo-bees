@@ -4,32 +4,39 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    private const float Tolerance = 0.1f;
+    private const string HorizontalAxisName = "Horizontal";
+    private const string VerticalAxisName = "Vertical";
+   
     [SerializeField] private Player _player;
     [SerializeField] private Transform _movePoint;
     [SerializeField] private Vector2 _minMapCordinatesPoint;
     [SerializeField] private Vector2 _maxMapCordinatesPoint;
     [SerializeField] private GameObject _stoneParent;
+    [SerializeField] private GameObject _waterIslandParent;
     [SerializeField] private SoundManager _soundManager;
     [SerializeField] private Animator _animator;
     [SerializeField] private UnityEngine.Camera _camera;
-
-    private const float Tolerance = 0.1f;
-    private const string HorizontalAxisName = "Horizontal";
-    private const string VerticalAxisName = "Vertical";
-   
+    private bool _isReloading = false;
+    private float _delayForReload = 1;
+    private Water[] _waterInstances;
+    
     public Action<DirectionWrapper> OnMoveChange = delegate {};
     public Action<DirectionWrapper, DirectionWrapper> OnAnimationChange = delegate {};
     public Action<Vector2> OnShoot = delegate {};
-    private bool _isReloading = false;
-    private float _delayForReload = 1;
 
+    private void Awake()
+    { 
+        _waterInstances = _waterIslandParent.GetComponentsInChildren<Water>();
+    }
 
     private bool IsCurrentlyMoving(DirectionWrapper horizontalDirectionWrapper, DirectionWrapper verticalDirectionWrapper)
     {
         return Mathf.Abs(horizontalDirectionWrapper.AxisValue) != 0f && Mathf.Abs(verticalDirectionWrapper.AxisValue) != 0f;
     }
 
-    private bool IsLegalMove(DirectionWrapper horizontalDirectionWrapper, DirectionWrapper verticalDirectionWrapper) {
+    private bool IsLegalMove(DirectionWrapper horizontalDirectionWrapper, DirectionWrapper verticalDirectionWrapper)
+    {
         float afterMoveHorizontal = _player.CurrentPosition.x + horizontalDirectionWrapper.AxisValue; 
         float afterMoveVertical = _player.CurrentPosition.y + verticalDirectionWrapper.AxisValue;
         Vector3 afterMovePosition = new Vector3(afterMoveHorizontal, afterMoveVertical);
@@ -37,19 +44,22 @@ public class PlayerController : MonoBehaviour
                               afterMoveHorizontal <= _maxMapCordinatesPoint.x &&
                               _minMapCordinatesPoint.y <= afterMoveVertical &&
                               afterMoveVertical <= _maxMapCordinatesPoint.y;
-        bool isNotStuckIntoStone = true;
+        bool isNotStuck = true;
         foreach (var stone in _stoneParent.GetComponentsInChildren<Stone>())
         {
             if (stone.CurrentPosition == afterMovePosition)
             {
-                isNotStuckIntoStone = false;
+                isNotStuck = false;
             }
         }
-        if (_animator.GetBool("isPlayerBat") == true)
+        foreach (var water in _waterInstances)
         {
-            isNotStuckIntoStone = true;
+            if (water.CurrentPosition == afterMovePosition)
+            {
+                isNotStuck = false;
+            }
         }
-        return isWithinBounds && isNotStuckIntoStone;
+        return isWithinBounds && isNotStuck;
     }
 
     private void Update()
