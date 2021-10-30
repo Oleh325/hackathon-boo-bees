@@ -1,5 +1,35 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &198352106
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 198352107}
+  m_Layer: 0
+  m_Name: BulletParent
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &198352107
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 198352106}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 9043057938274085050}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1213037273
 GameObject:
   m_ObjectHideFlags: 0
@@ -118,6 +148,7 @@ GameObject:
   - component: {fileID: 2109950169}
   - component: {fileID: 2109950168}
   - component: {fileID: 5616335751228471828}
+  - component: {fileID: 9043057936894758969}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -138,6 +169,7 @@ Transform:
   m_Children:
   - {fileID: 9043057937488934050}
   - {fileID: 1213037275}
+  - {fileID: 198352107}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -157,11 +189,6 @@ MonoBehaviour:
   _movePoint: {fileID: 9043057937488934050}
   _animator: {fileID: 1126495937}
   _playerController: {fileID: 2258082163592888738}
-  _pumpkinManager: {fileID: 0}
-  _soundManager: {fileID: 0}
-  _TransformationText: {fileID: 0}
-  animator: {fileID: 1126495937}
-  canTransform: 0
 --- !u!212 &1126495936
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -312,5 +339,33 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _bulletPrefab: {fileID: 2029748208450664716, guid: 829da3861f64b154cbccf3cd4f6765a1,
     type: 3}
-  _bulletSpeed: 5
+  _bulletSpeed: 50
   _playerController: {fileID: 2258082163592888738}
+  _bulletsParrent: {fileID: 198352106}
+  _minMapCordinatesPoint: {x: 0, y: 0}
+  _maxMapCordinatesPoint: {x: 32, y: 18}
+--- !u!114 &9043057936894758969
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9043057938274085051}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ab224cde545244008989e7c3e5eaa73, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _health: 3
+  _numOfHearts: 3
+  hearts:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  fullHeart: {fileID: 21300000, guid: d6e4c5a57c98c4434972b68d74ce39b4, type: 3}
+  emptyHeart: {fileID: 21300000, guid: 66cb34ea0557341c0afb88cc79717954, type: 3}
