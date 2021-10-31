@@ -1992,7 +1992,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e70c3352982843db9bc03acf0c73cd5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timerDuration: 61
+  timerDuration: 11
   firstMinute: {fileID: 1491453042}
   secondMinute: {fileID: 2025059363}
   separator: {fileID: 106774263}

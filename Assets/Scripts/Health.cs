@@ -16,6 +16,10 @@ public class Health : MonoBehaviour
     private void Update()
     {
         UpdateHeartStatusBar();
+        if (_numOfHearts == 0)
+        {
+            SceneManager.LoadScene("GameOver", LoadSceneMode.Single);
+        }
     }
 
     private void UpdateHeartStatusBar()
