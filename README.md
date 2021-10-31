@@ -1,2 +1,0 @@
-# hackathon-boo-bees
-Game
