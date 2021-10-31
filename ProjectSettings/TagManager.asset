@@ -8,6 +8,7 @@ TagManager:
   - ScaredHuman
   - Bullet
   - Water
+  - DayNumberText
   - Skeleton
   layers:
   - Default

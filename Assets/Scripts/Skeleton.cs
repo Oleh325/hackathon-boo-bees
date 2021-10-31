@@ -86,6 +86,7 @@ public class Skeleton : MonoBehaviour
             ResetAllTriggers();
             _animator.SetTrigger(Animator.StringToHash(SkeletonState.IsRuined.ToString()));
         }
+        
     }
 
     private void ResetAllTriggers()
