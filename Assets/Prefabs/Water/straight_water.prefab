@@ -13,8 +13,8 @@ GameObject:
   - component: {fileID: 2789200123283395770}
   - component: {fileID: -6706387146083454309}
   m_Layer: 0
-  m_Name: gay_water 1
-  m_TagString: Untagged
+  m_Name: straight_water
+  m_TagString: Water
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

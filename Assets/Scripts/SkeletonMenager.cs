@@ -44,7 +44,10 @@ public class SkeletonMenager : MonoBehaviour
     { 
         foreach (Transform child in _skeletonsParent.transform)
         {
-            Destroy(child.gameObject);
+            if (!child.gameObject.GetComponent<Skeleton>().IsDead)
+            {
+                Destroy(child.gameObject);
+            }
         }
     }
 
