@@ -54,6 +54,11 @@ public class Health : MonoBehaviour
             if (other.GetComponent<Skeleton>().IsDead)
             {
                 shootingController.AddBullet();
+                // adding elements of luck
+                if (UnityEngine.Random.Range(0, 2).Equals(1))
+                {
+                    shootingController.AddBullet();
+                }
                 Destroy(other.gameObject);
             }
             else
