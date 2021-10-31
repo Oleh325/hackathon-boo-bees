@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections.Generic;
+using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class Skeleton : MonoBehaviour
@@ -14,8 +15,10 @@ public class Skeleton : MonoBehaviour
     }
 
     private const string IslandTagName = "Island";
+    private const string WaterTagName = "Water";
     private const string GameOverSceneName = "GameOver";
     private const string PlayerTagName = "Player";
+    private const string SkeletonTagName = "Skeleton";
     private const string BulletTagName = "Bullet";
 
     [SerializeField] private Transform _targetTransform;
@@ -24,8 +27,11 @@ public class Skeleton : MonoBehaviour
     private Rigidbody2D _rigidbody2D;
     private Vector2 _movement;
     private bool _isDead = false;
+    private bool _isOnWater = false;
+    private bool _canWalkOnIsland = false;
 
     public bool IsDead => _isDead;
+    public bool IsOnWater => _isOnWater;
     private void Awake()
     {
         _targetTransform = FindObjectOfType<Player>().transform;
@@ -66,6 +72,21 @@ public class Skeleton : MonoBehaviour
         {
             return;
         }
+        if (other.gameObject.CompareTag(WaterTagName))
+        {
+            Debug.Log("touched water");
+            _isOnWater = true;
+        }
+
+        if (other.gameObject.CompareTag(SkeletonTagName) && _isOnWater)
+        {
+            Debug.Log("toucher other sceleton");
+            if (other.gameObject.GetComponent<Skeleton>().IsDead)
+            {
+                Debug.Log("CAN WLK ON ISLAND");
+                _canWalkOnIsland = true;
+            }
+        }
 
         if (other.gameObject.CompareTag(BulletTagName))
         {
@@ -74,7 +95,7 @@ public class Skeleton : MonoBehaviour
             _animator.SetTrigger(Animator.StringToHash(SkeletonState.IsRuined.ToString()));
         }
 
-        if (other.gameObject.CompareTag(IslandTagName))
+        if (other.gameObject.CompareTag(IslandTagName) && !_canWalkOnIsland)
         {
             //StartCoroutine(DieWithDelay());
             _isDead = true;

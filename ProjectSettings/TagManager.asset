@@ -11,6 +11,8 @@ TagManager:
   - Skeleton
   - Bridge
   - Bat
+  - Island
+  - Water
   layers:
   - Default
   - TransparentFX
