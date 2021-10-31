@@ -2103,6 +2103,8 @@ MonoBehaviour:
   _SpawnMagnitude: 3
   _MaxXPosition: 31
   _MaxYPosition: 17
+  PondMinPosition: {x: 15, y: 6}
+  PondMaxPosition: {x: 19, y: 10}
 --- !u!1 &1629758697
 GameObject:
   m_ObjectHideFlags: 0
@@ -2651,6 +2653,21 @@ PrefabInstance:
       propertyPath: m_WasSpriteAssigned
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4926156788556139615, guid: 433c17d47d0106241a0c9d41eeac946b,
+        type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 3392178eb76b06544a4eb15d36ba62ec, type: 2}
+    - target: {fileID: 5700724293221427330, guid: 433c17d47d0106241a0c9d41eeac946b,
+        type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 70b05f58862c90f44aefd7ccfc4824c7, type: 2}
+    - target: {fileID: 5901352333544262713, guid: 433c17d47d0106241a0c9d41eeac946b,
+        type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: fc28c5b35302f5246950e7aa89a49acb, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 433c17d47d0106241a0c9d41eeac946b, type: 3}
 --- !u!224 &2958453785309098542
