@@ -14,12 +14,14 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private Vector2 _maxMapCordinatesPoint;
     [SerializeField] private GameObject _stoneParent;
     [SerializeField] private GameObject _waterIslandParent;
+    [SerializeField] private GameObject _bridgeParent;
     [SerializeField] private SoundManager _soundManager;
     [SerializeField] private Animator _animator;
     [SerializeField] private UnityEngine.Camera _camera;
     private bool _isReloading = false;
     private float _delayForReload = 1;
     private Water[] _waterInstances;
+    private Bridge[] _bridgeInstances;
     
     public Action<DirectionWrapper> OnMoveChange = delegate {};
     public Action<DirectionWrapper, DirectionWrapper> OnAnimationChange = delegate {};
@@ -28,6 +30,7 @@ public class PlayerController : MonoBehaviour
     private void Awake()
     { 
         _waterInstances = _waterIslandParent.GetComponentsInChildren<Water>();
+        _bridgeInstances = _bridgeParent.GetComponentsInChildren<Bridge>();
     }
 
     private bool IsCurrentlyMoving(DirectionWrapper horizontalDirectionWrapper, DirectionWrapper verticalDirectionWrapper)
@@ -57,6 +60,13 @@ public class PlayerController : MonoBehaviour
             if (water.CurrentPosition == afterMovePosition)
             {
                 isNotStuck = false;
+            }
+        }
+        foreach (var bridge in _bridgeInstances)
+        {
+            if (bridge.CurrentPosition == afterMovePosition)
+            {
+                isNotStuck = true;
             }
         }
         return isWithinBounds && isNotStuck;
