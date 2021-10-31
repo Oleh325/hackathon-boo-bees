@@ -28,7 +28,6 @@ public class Player : MonoBehaviour, IUnit
     {
         _movePoint.parent = null;
         CurrentPosition = _movePoint.position;
-        _animator.SetBool("isPlayerBat", false);
     }
 
     private void Update()
