@@ -2,6 +2,7 @@
 using TMPro;
 using System.Collections;
 using System;
+using UnityEngine.SceneManagement;
 
 public class Timer : MonoBehaviour
 {
@@ -35,6 +36,10 @@ public class Timer : MonoBehaviour
 
     void Update()
     {
+        if (dayNightCount == 6)
+        {
+            SceneManager.LoadScene("Finish", LoadSceneMode.Single);
+        }
         if (timer > 0)
         {
             if (timer < flashDuraction)
@@ -50,11 +55,11 @@ public class Timer : MonoBehaviour
             {
                 nightNumber.text = "NIGHT " + dayNightCount.ToString();
                 StartCoroutine(FadeInNight(nightCanvas, nightCanvas.alpha));
-                dayNightCount++;
                 isDay = false;
             }
             else
             {
+                dayNightCount++;
                 dayNumber.text = "DAY " + dayNightCount.ToString();
                 StartCoroutine(FadeInDay(dayCanvas, dayCanvas.alpha));
                 isDay = true;
