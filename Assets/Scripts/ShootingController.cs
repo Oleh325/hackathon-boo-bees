@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using TMPro;
 using UnityEngine;
 
 public class ShootingController : MonoBehaviour
@@ -9,10 +10,13 @@ public class ShootingController : MonoBehaviour
     [SerializeField] private GameObject _bulletsParrent;
     [SerializeField] private Vector2 _minMapCordinatesPoint;
     [SerializeField] private Vector2 _maxMapCordinatesPoint;
-    
+    [SerializeField] private TextMeshProUGUI _ammoText;
+    [SerializeField] private int _ammoCount = 10;
+
     private void Awake()
     {
         _playerController.OnShoot += Shoot;
+        UpdateAmmoText();
     }
 
     private void OnDestroy()
@@ -22,10 +26,23 @@ public class ShootingController : MonoBehaviour
 
     public void Shoot(Vector2 mousePos)
     {
+        if (!CanShoot()) return;
+        _ammoCount--;
         GameObject bullet = Instantiate(_bulletPrefab, transform.position, transform.rotation, _bulletsParrent.transform);
         Rigidbody2D bulletRigidbody = bullet.GetComponent<Rigidbody2D>();
         bulletRigidbody.AddForce((mousePos - (Vector2) transform.position).normalized * _bulletSpeed, ForceMode2D.Impulse);
         StartCoroutine(DestroyBulletOnMapBorder(bullet));
+        UpdateAmmoText();
+    }
+
+    private bool CanShoot()
+    {
+        return _ammoCount > 0;
+    }
+
+    private void UpdateAmmoText()
+    {
+        _ammoText.SetText("" + _ammoCount);
     }
 
     private IEnumerator DestroyBulletOnMapBorder(GameObject bullet)
