@@ -52,9 +52,9 @@ public class Health : MonoBehaviour
         {
             RemoveLife();
         }
-       else
-       if(other.gameObject.tag.Equals("HealthBoost"))
+       else if(other.gameObject.tag.Equals("Bat"))
         {
+            Destroy(other.gameObject);
             AddLife();
         }
     }
