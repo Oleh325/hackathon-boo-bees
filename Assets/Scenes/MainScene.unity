@@ -2103,6 +2103,8 @@ MonoBehaviour:
   _SpawnMagnitude: 3
   _MaxXPosition: 31
   _MaxYPosition: 17
+  PondMinPosition: {x: 15, y: 6}
+  PondMaxPosition: {x: 19, y: 10}
 --- !u!1 &1629758697
 GameObject:
   m_ObjectHideFlags: 0
