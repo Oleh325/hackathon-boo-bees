@@ -11,6 +11,7 @@ public class Health : MonoBehaviour
     [SerializeField] private Image[] hearts;
     [SerializeField] private Sprite fullHeart;
     [SerializeField] private Sprite emptyHeart;
+    [SerializeField] private ShootingController shootingController;
 
     // Update is called once per frame
     private void Update()
@@ -48,13 +49,27 @@ public class Health : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-       if(other.gameObject.tag.Equals("Skeleton"))
+        if (other.gameObject.tag.Equals("Skeleton"))
         {
-            RemoveLife();
+            if (other.GetComponent<Skeleton>().IsDead)
+            {
+                shootingController.AddBullet();
+                // adding elements of luck
+                if (UnityEngine.Random.Range(0, 2).Equals(1))
+                {
+                    shootingController.AddBullet();
+                }
+                Destroy(other.gameObject);
+            }
+            else
+            {
+                RemoveLife();
+                Destroy(other.gameObject);
+            }
         }
-       else
-       if(other.gameObject.tag.Equals("HealthBoost"))
+        else if (other.gameObject.tag.Equals("Bat"))
         {
+            Destroy(other.gameObject);
             AddLife();
         }
     }

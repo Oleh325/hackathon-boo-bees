@@ -27,17 +27,28 @@ public class ShootingController : MonoBehaviour
     public void Shoot(Vector2 mousePos)
     {
         if (!CanShoot()) return;
-        _ammoCount--;
+        SpendBullet();
         GameObject bullet = Instantiate(_bulletPrefab, transform.position, transform.rotation, _bulletsParrent.transform);
         Rigidbody2D bulletRigidbody = bullet.GetComponent<Rigidbody2D>();
         bulletRigidbody.AddForce((mousePos - (Vector2) transform.position).normalized * _bulletSpeed, ForceMode2D.Impulse);
         StartCoroutine(DestroyBulletOnMapBorder(bullet));
-        UpdateAmmoText();
     }
 
     private bool CanShoot()
     {
         return _ammoCount > 0;
+    }
+
+    public void AddBullet()
+    {
+        _ammoCount++;
+        UpdateAmmoText();
+    }
+
+    public void SpendBullet()
+    {
+        _ammoCount--;
+        UpdateAmmoText();
     }
 
     private void UpdateAmmoText()

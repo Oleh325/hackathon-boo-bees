@@ -157,11 +157,7 @@ MonoBehaviour:
   _movePoint: {fileID: 9043057937488934050}
   _animator: {fileID: 1126495937}
   _playerController: {fileID: 2258082163592888738}
-  _pumpkinManager: {fileID: 0}
-  _soundManager: {fileID: 0}
-  _TransformationText: {fileID: 0}
-  animator: {fileID: 1126495937}
-  canTransform: 0
+  _timeController: {fileID: 0}
 --- !u!212 &1126495936
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -201,7 +197,7 @@ SpriteRenderer:
   m_SortingLayerID: 938572189
   m_SortingLayer: 2
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: a87c5587e0c9a43d39a2ea4533c086c2, type: 3}
+  m_Sprite: {fileID: 21300000, guid: bd9e25c07f948b84db10815fea705bc6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -248,6 +244,8 @@ MonoBehaviour:
   _minMapCordinatesPoint: {x: 0, y: 0}
   _maxMapCordinatesPoint: {x: 31, y: 17}
   _stoneParent: {fileID: 0}
+  _waterIslandParent: {fileID: 0}
+  _bridgeParent: {fileID: 0}
   _soundManager: {fileID: 0}
   _animator: {fileID: 1126495937}
   _camera: {fileID: 0}
@@ -314,3 +312,8 @@ MonoBehaviour:
     type: 3}
   _bulletSpeed: 5
   _playerController: {fileID: 2258082163592888738}
+  _bulletsParrent: {fileID: 0}
+  _minMapCordinatesPoint: {x: 0, y: 0}
+  _maxMapCordinatesPoint: {x: 0, y: 0}
+  _ammoText: {fileID: 0}
+  _ammoCount: 10
