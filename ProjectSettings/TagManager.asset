@@ -1,0 +1,64 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!78 &1
+TagManager:
+  serializedVersion: 2
+  tags:
+  - Pumpkin
+  - ScaredHuman
+  - Bullet
+  - DayNumberText
+  - Skeleton
+  - Bridge
+  - Bat
+  - Island
+  - Water
+  layers:
+  - Default
+  - TransparentFX
+  - Ignore Raycast
+  - 
+  - Water
+  - UI
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  m_SortingLayers:
+  - name: Background
+    uniqueID: 1205914619
+    locked: 0
+  - name: Default
+    uniqueID: 0
+    locked: 0
+  - name: Props
+    uniqueID: 4067714669
+    locked: 0
+  - name: Player
+    uniqueID: 938572189
+    locked: 0
+  - name: AngryHuman
+    uniqueID: 3990229961
+    locked: 0
