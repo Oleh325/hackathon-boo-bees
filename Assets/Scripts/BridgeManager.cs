@@ -8,18 +8,23 @@ public class BridgeManager : MonoBehaviour
     [SerializeField] private GameObject _bridgeParent;
     [SerializeField] private Timer _timer;
     // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
-        bool isDay = _timer.isDay;
-        foreach(Transform child in _bridgeParent.transform)
-        {
-            child.gameObject.SetActive(isDay);
-        }
+        _timer.OnDayNightTransition += SetBridgesActive;
+    }
+
+    private void OnDestroy()
+    {
+        _timer.OnDayNightTransition -= SetBridgesActive;
     }
 
     // Update is called once per frame
-    void Update()
+    private void SetBridgesActive(bool isDay)
     {
-        
+        foreach (Transform child in _bridgeParent.transform)
+        {
+            Debug.Log("Setting bridges to" + isDay);
+            child.gameObject.SetActive(isDay);
+        }
     }
 }

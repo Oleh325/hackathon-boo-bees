@@ -64,7 +64,7 @@ public class PlayerController : MonoBehaviour
         }
         foreach (var bridge in _bridgeInstances)
         {
-            if (bridge.CurrentPosition == afterMovePosition)
+            if (bridge.CurrentPosition == afterMovePosition && bridge.gameObject.activeSelf)
             {
                 isNotStuck = true;
             }
