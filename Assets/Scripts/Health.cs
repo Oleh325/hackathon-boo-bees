@@ -11,11 +11,16 @@ public class Health : MonoBehaviour
     [SerializeField] private Image[] hearts;
     [SerializeField] private Sprite fullHeart;
     [SerializeField] private Sprite emptyHeart;
+    [SerializeField] private ShootingController shootingController;
 
     // Update is called once per frame
     private void Update()
     {
         UpdateHeartStatusBar();
+        if (_numOfHearts == 0)
+        {
+            SceneManager.LoadScene("GameOver", LoadSceneMode.Single);
+        }
     }
 
     private void UpdateHeartStatusBar()
@@ -46,15 +51,20 @@ public class Health : MonoBehaviour
     {
         if (other.gameObject.tag.Equals("Skeleton"))
         {
-            if (!other.GetComponent<Skeleton>().IsDead)
+            if (other.GetComponent<Skeleton>().IsDead)
+            {
+                shootingController.AddBullet();
+                Destroy(other.gameObject);
+            }
+            else
             {
                 RemoveLife();
-                Destroy(other);
+                Destroy(other.gameObject);
             }
         }
-        else
-        if(other.gameObject.tag.Equals("HealthBoost"))
+        else if (other.gameObject.tag.Equals("Bat"))
         {
+            Destroy(other.gameObject);
             AddLife();
         }
     }
