@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using TMPro;
 using System.Collections;
-using UnityEngine.UI;
+using System;
 
 public class Timer : MonoBehaviour
 {
@@ -23,13 +23,14 @@ public class Timer : MonoBehaviour
     private float timer;
     private int dayNightCount = 1;
     private float fadingDuration = 2.0f;
-
+    public Action<bool> OnDayNightTransition = delegate {};
     public bool isDay { get; private set; } = true;
     
     private void Start()
     {
         ResetTimer();
         StartCoroutine(WaitDay());
+        timer -= 2.0f;
     }
 
     void Update()
@@ -109,17 +110,21 @@ public class Timer : MonoBehaviour
     }
     private IEnumerator WaitNight()
     {
+        OnDayNightTransition(isDay);
         Time.timeScale = 0;
         yield return new WaitForSecondsRealtime(3);
         Time.timeScale = 1;
+        timer += 2.0f;
         StartCoroutine(FadeOutNight(nightCanvas, nightCanvas.alpha));
     }
 
     private IEnumerator WaitDay()
     {
+        OnDayNightTransition(isDay);
         Time.timeScale = 0;
         yield return new WaitForSecondsRealtime(3);
         Time.timeScale = 1;
+        timer += 2.0f;
         StartCoroutine(FadeOutDay(dayCanvas, dayCanvas.alpha));
     }
 

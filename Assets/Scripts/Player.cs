@@ -7,6 +7,7 @@ public class Player : MonoBehaviour, IUnit
     [SerializeField] private Transform _movePoint;
     [SerializeField] private Animator _animator;
     [SerializeField] private PlayerController _playerController;
+    [SerializeField] private Timer _timeController;
     public Vector3 CurrentPosition { get; private set; }
 
     private const string FinishSceneName = "Finish";
@@ -16,19 +17,20 @@ public class Player : MonoBehaviour, IUnit
     {
         _playerController.OnMoveChange += Move;
         _playerController.OnAnimationChange += SetAnimator;
+        _timeController.OnDayNightTransition += Transition;
     }
 
     private void OnDestroy()
     {
         _playerController.OnMoveChange -= Move;
         _playerController.OnAnimationChange -= SetAnimator;
+        _timeController.OnDayNightTransition -= Transition;
     }
 
     private void Start()
     {
         _movePoint.parent = null;
         CurrentPosition = _movePoint.position;
-        _animator.SetBool("isPlayerBat", false);
     }
 
     private void Update()
@@ -56,6 +58,20 @@ public class Player : MonoBehaviour, IUnit
         _animator.SetFloat(horizontalDirectionWrapper.AxisName, horizontalDirectionWrapper.AxisValue);
         _animator.SetFloat(verticalDirectionWrapper.AxisName, verticalDirectionWrapper.AxisValue);
     }
-    
+
+    public void Transition(bool isDay)
+    {
+        if (isDay)
+        {
+            // Other Day to Night transition
+        }
+        else
+        {
+            transform.position = new Vector3(17, 8, 0);
+            CurrentPosition = transform.position;
+            _movePoint.position = transform.position;
+            //Despawn Skeletons
+        }
+    }
 }
 
