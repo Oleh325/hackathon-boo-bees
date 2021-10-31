@@ -44,12 +44,16 @@ public class Health : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-       if(other.gameObject.tag.Equals("Skeleton"))
+        if (other.gameObject.tag.Equals("Skeleton"))
         {
-            RemoveLife();
+            if (!other.GetComponent<Skeleton>().IsDead)
+            {
+                RemoveLife();
+                Destroy(other);
+            }
         }
-       else
-       if(other.gameObject.tag.Equals("HealthBoost"))
+        else
+        if(other.gameObject.tag.Equals("HealthBoost"))
         {
             AddLife();
         }

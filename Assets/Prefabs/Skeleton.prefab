@@ -187,6 +187,7 @@ GameObject:
   - component: {fileID: 234906099}
   - component: {fileID: 705047309017312216}
   - component: {fileID: 8470397629875836514}
+  - component: {fileID: 8995258739743398702}
   m_Layer: 0
   m_Name: Skeleton
   m_TagString: Skeleton
@@ -250,7 +251,7 @@ SpriteRenderer:
   m_SortingLayerID: -304737335
   m_SortingLayer: 3
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: adf0ad4e18ead44fa9e2a3c5aa8396f2, type: 3}
+  m_Sprite: {fileID: 21300000, guid: f74aa27de5d3d6a4597f019fd0f38235, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -278,7 +279,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.2, y: 1.2}
+    oldSize: {x: 1, y: 1}
     newSize: {x: 1.2, y: 1.2}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -301,6 +302,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _targetTransform: {fileID: 823333310}
   _moveSpeed: 2
+  _animator: {fileID: 8995258739743398702}
 --- !u!50 &8470397629875836514
 Rigidbody2D:
   serializedVersion: 4
@@ -322,3 +324,22 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!95 &8995258739743398702
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2242441295325190163}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: a3cf0c31ca7d43a42aef0aa98213a8d0, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
