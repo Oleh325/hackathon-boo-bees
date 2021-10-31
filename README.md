@@ -1,5 +1,5 @@
-# hackathon-boo-bees 
-Skeleton Rush
+# Skeleton Rush
+Boo bees team
 
 To move use W, A, S and D keys
 Aim using mouse. To shoot use right-click
