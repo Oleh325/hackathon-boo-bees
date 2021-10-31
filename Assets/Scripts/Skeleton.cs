@@ -33,15 +33,11 @@ public class Skeleton : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.gameObject.CompareTag(PlayerTagName))
-        {
-            SceneManager.LoadScene(GameOverSceneName);
-        }
-
-        if (other.gameObject.CompareTag(BulletTagName))
+        if (other.gameObject.CompareTag(BulletTagName)||other.gameObject.CompareTag("Player"))
         {
             Destroy(gameObject);
         }
+        
     }
     private void MoveCharacter(Vector2 direction)
     {

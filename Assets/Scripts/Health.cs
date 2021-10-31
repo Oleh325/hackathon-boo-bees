@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class Health : MonoBehaviour
@@ -40,4 +41,38 @@ public class Health : MonoBehaviour
             }
         }
     }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+       if(other.gameObject.tag.Equals("Skeleton"))
+        {
+            RemoveLife();
+        }
+       else
+       if(other.gameObject.tag.Equals("HealthBoost"))
+        {
+            AddLife();
+        }
+    }
+
+    public void RemoveLife()
+    {
+        if(_health==1)
+        {
+            SceneManager.LoadScene("GameOver");
+        }
+        else
+        {
+            _health--;
+        }
+    }
+
+    public void AddLife()
+    {
+        if (_health < 3)
+        {
+            _health++;
+        }
+    }
+
 }
