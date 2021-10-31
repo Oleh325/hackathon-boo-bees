@@ -12,6 +12,8 @@ public class PebbleManager : MonoBehaviour
     [SerializeField] private int _SpawnMagnitude = 3;
     [SerializeField] private int _MaxXPosition = 31;
     [SerializeField] private int _MaxYPosition = 17;
+    [SerializeField] private Vector2 PondMinPosition = new Vector2(15, 6);
+    [SerializeField] private Vector2 PondMaxPosition = new Vector2(19, 10);
 
     private List<GameObject> _InstantiatedPebbles;
 
@@ -39,9 +41,11 @@ public class PebbleManager : MonoBehaviour
             position = new Vector3(x, y, z);
             foreach (GameObject pebble in _InstantiatedPebbles)
             {
-                if ((position - pebble.transform.position).magnitude < _SpawnMagnitude)
+                if ((position - pebble.transform.position).magnitude < _SpawnMagnitude ||
+                    SpawnedOnPond(position))
                 {
                     canSpawn = false;
+                    Debug.Log("cant spawn here: " + position.x + " " + position.y);
                     break;
                 }
             }
@@ -49,6 +53,12 @@ public class PebbleManager : MonoBehaviour
         Quaternion rotation = new Quaternion(0f, 0f, 0f, 0f);
         GameObject newPumpkin = Instantiate(Random.Range(0, 2) > 0 ? _PebblePrefab1 : _PebblePrefab2, position, rotation, _Parent.transform);
         _InstantiatedPebbles.Add(newPumpkin);
+    }
+
+    private bool SpawnedOnPond(Vector3 position)
+    {
+        return position.x >= PondMinPosition.x && position.x <= PondMaxPosition.x &&
+                position.y >= PondMinPosition.y && position.y <= PondMaxPosition.y;
     }
 
 }

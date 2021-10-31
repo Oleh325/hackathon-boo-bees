@@ -1,40 +1,35 @@
 ﻿using UnityEngine;
 using TMPro;
-using UnityEngine.SceneManagement;
+using System.Collections;
+using UnityEngine.UI;
 
 public class Timer : MonoBehaviour
 {
-    [SerializeField]
-    private float timerDuration = 3f * 60f; //Duration of the timer in seconds
-
-    private float timer;
-    [SerializeField]
-    private TextMeshProUGUI firstMinute;
-    [SerializeField]
-    private TextMeshProUGUI secondMinute;
-    [SerializeField]
-    private TextMeshProUGUI separator;
-    [SerializeField]
-    private TextMeshProUGUI firstSecond;
-    [SerializeField]
-    private TextMeshProUGUI secondSecond;
-
     private const float DeltaTime = 1f;
-    private const float HalfDeltaTime = DeltaTime/2f;
-    [SerializeField]
-    private float flashMagnitude = 0.4f; //The half length of the flash(enabled text)
-    [SerializeField]
-    private float flashDuraction = 10f;
+    private const float HalfDeltaTime = DeltaTime / 2f;
 
+    [SerializeField] private float timerDuration = 60f; //Duration of the timer in seconds
+    [SerializeField] private TextMeshProUGUI firstMinute;
+    [SerializeField] private TextMeshProUGUI secondMinute;
+    [SerializeField] private TextMeshProUGUI separator;
+    [SerializeField] private TextMeshProUGUI firstSecond;
+    [SerializeField] private TextMeshProUGUI secondSecond;
+    [SerializeField] private TextMeshProUGUI dayNumber;
+    [SerializeField] private TextMeshProUGUI nightNumber;
+    [SerializeField] private float flashMagnitude = 0.4f; //The half length of the flash(enabled text)
+    [SerializeField] private float flashDuraction = 10f;
+    [SerializeField] private CanvasGroup dayCanvas;
+    [SerializeField] private CanvasGroup nightCanvas;
+    private float timer;
+    private int dayNightCount = 1;
+    private float fadingDuration = 2.0f;
+
+    public bool isDay { get; private set; } = true;
+    
     private void Start()
     {
         ResetTimer();
-    }
-
-    private void ResetTimer()
-    {
-        timer = timerDuration;
-        SetTextDisplay(true);
+        StartCoroutine(WaitDay());
     }
 
     void Update()
@@ -50,8 +45,88 @@ public class Timer : MonoBehaviour
         }
         else
         {
-            SceneManager.LoadScene("GameOver");
+            if (isDay)
+            {
+                nightNumber.text = "NIGHT " + dayNightCount.ToString();
+                StartCoroutine(FadeInNight(nightCanvas, nightCanvas.alpha));
+                dayNightCount++;
+                isDay = false;
+            }
+            else
+            {
+                dayNumber.text = "DAY " + dayNightCount.ToString();
+                StartCoroutine(FadeInDay(dayCanvas, dayCanvas.alpha));
+                isDay = true;
+            }
+            ResetTimer();
         }
+    }
+
+    private IEnumerator FadeInNight(CanvasGroup canvGroup, float start)
+    {
+        float counter = 0f;
+        while (counter < fadingDuration)
+        {
+            counter += Time.deltaTime;
+            canvGroup.alpha = Mathf.Lerp(start, 1, counter/fadingDuration);
+            yield return null;
+        }
+        StartCoroutine(WaitNight());
+    }
+
+    private IEnumerator FadeOutNight(CanvasGroup canvGroup, float start)
+    {
+        float counter = 0f;
+        while (counter < fadingDuration)
+        {
+            counter += Time.deltaTime;
+            canvGroup.alpha = Mathf.Lerp(start, 0, counter / fadingDuration);
+            yield return null;
+        }
+    }
+
+    private IEnumerator FadeInDay(CanvasGroup canvGroup, float start)
+    {
+        float counter = 0f;
+        while (counter < fadingDuration)
+        {
+            counter += Time.deltaTime;
+            canvGroup.alpha = Mathf.Lerp(start, 1, counter / fadingDuration);
+            yield return null;
+        }
+        StartCoroutine(WaitDay());
+    }
+
+    private IEnumerator FadeOutDay(CanvasGroup canvGroup, float start)
+    {
+        float counter = 0f;
+        while (counter < fadingDuration)
+        {
+            counter += Time.deltaTime;
+            canvGroup.alpha = Mathf.Lerp(start, 0, counter / fadingDuration);
+            yield return null;
+        }
+    }
+    private IEnumerator WaitNight()
+    {
+        Time.timeScale = 0;
+        yield return new WaitForSecondsRealtime(3);
+        Time.timeScale = 1;
+        StartCoroutine(FadeOutNight(nightCanvas, nightCanvas.alpha));
+    }
+
+    private IEnumerator WaitDay()
+    {
+        Time.timeScale = 0;
+        yield return new WaitForSecondsRealtime(3);
+        Time.timeScale = 1;
+        StartCoroutine(FadeOutDay(dayCanvas, dayCanvas.alpha));
+    }
+
+    private void ResetTimer()
+    {
+        timer = timerDuration;
+        SetTextDisplay(true);
     }
 
     private void UpdateTimerDisplay(float time)
