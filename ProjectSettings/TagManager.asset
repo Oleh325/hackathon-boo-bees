@@ -9,6 +9,7 @@ TagManager:
   - Bullet
   - DayNumberText
   - Skeleton
+  - Bridge
   layers:
   - Default
   - TransparentFX
