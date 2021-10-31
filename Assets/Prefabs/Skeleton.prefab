@@ -186,7 +186,8 @@ GameObject:
   - component: {fileID: 6757780793367062713}
   - component: {fileID: 234906099}
   - component: {fileID: 705047309017312216}
-  - component: {fileID: 8470397629875836514}
+  - component: {fileID: 4419654548207260330}
+  - component: {fileID: 4241240347012681287}
   m_Layer: 0
   m_Name: Skeleton
   m_TagString: Skeleton
@@ -250,7 +251,7 @@ SpriteRenderer:
   m_SortingLayerID: -304737335
   m_SortingLayer: 3
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: adf0ad4e18ead44fa9e2a3c5aa8396f2, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 9656467f0962623449abac4a2d6762b7, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -278,7 +279,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.2, y: 1.2}
+    oldSize: {x: 1, y: 1}
     newSize: {x: 1.2, y: 1.2}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -301,7 +302,27 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _targetTransform: {fileID: 823333310}
   _moveSpeed: 2
---- !u!50 &8470397629875836514
+  _animator: {fileID: 4419654548207260330}
+--- !u!95 &4419654548207260330
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2242441295325190163}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 619494ff7db3e0948b8da3672cef2809, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!50 &4241240347012681287
 Rigidbody2D:
   serializedVersion: 4
   m_ObjectHideFlags: 0
@@ -309,13 +330,13 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2242441295325190163}
-  m_BodyType: 0
+  m_BodyType: 1
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
   m_LinearDrag: 0
-  m_AngularDrag: 0.05
+  m_AngularDrag: 0
   m_GravityScale: 0
   m_Material: {fileID: 0}
   m_Interpolate: 0
