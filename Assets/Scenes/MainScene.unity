@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 1
+  m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -2248,7 +2248,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e70c3352982843db9bc03acf0c73cd5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timerDuration: 31
+  timerDuration: 61
   firstMinute: {fileID: 1491453042}
   secondMinute: {fileID: 2025059363}
   separator: {fileID: 106774263}
