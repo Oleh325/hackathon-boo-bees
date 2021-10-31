@@ -2420,6 +2420,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: straight_water_7
       objectReference: {fileID: 0}
+    - target: {fileID: 1730351052159493593, guid: 433c17d47d0106241a0c9d41eeac946b,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2215242851964925410, guid: 433c17d47d0106241a0c9d41eeac946b,
         type: 3}
       propertyPath: m_Name
@@ -2530,6 +2535,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: straight_water_12
+      objectReference: {fileID: 0}
+    - target: {fileID: 3655015322969945049, guid: 433c17d47d0106241a0c9d41eeac946b,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4272879197338191553, guid: 433c17d47d0106241a0c9d41eeac946b,
         type: 3}
